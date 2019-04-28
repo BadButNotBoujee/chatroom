@@ -67,7 +67,7 @@ app.post('/chatroom',  function(request, response){
 	   
    
 	if(room!=null || checkForBlank(username)){
-	  response.render("pages/chatroomTemplate", {uname: username, namespace:roomKey});
+	  response.render("pages/chatroomTemplate", {uname: username, room_name: room.name, namespace:roomKey});
 	}else{
 	 response.redirect('/');
 	}
