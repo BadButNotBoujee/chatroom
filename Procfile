@@ -1,2 +1,2 @@
-web: node index_controller.js
+web: npm install; node index_controller.js
 
