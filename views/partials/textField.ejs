@@ -1,0 +1,52 @@
+
+
+<div class="inputTextFlield">
+   <form style="text-align: center;">
+   	<input type="hidden" value="<%= uname %>">
+      <div class="form-group" >
+         <textarea class="form-control" id="messageToSend" onkeypress="keyPressed(event)" rows="2"  name="messageToSend" autofocus></textarea>
+      </div>
+      <div  class="btn btn-outline-success" onclick="sendMessage()" style="margin-top:-25px; width: 75%; background:white; ">Submit</div><button  class="btn btn-outline-danger" style="margin-top:-25px;width: 25%; background:white;">Leave</button>
+   </form>
+</div>
+
+
+
+
+
+<script type="text/javascript">
+ var socket = io("<%= '/' + namespace %>");
+ 
+  socket.on('connect', function(){
+  	console.log("input connected")
+  });
+  
+   window.scrollTo(0, document.body.scrollHeight); 
+   
+   function keyPressed(event) {
+   	switch(event.keyCode) {
+   	case 13: sendMessage();
+   	break;
+   	default:
+   		console.log("keypressed.")
+   	}		
+   }
+   
+   function getTextFromTextAreaAndSendMessage() {
+   	document.getElementById("messageToSend");
+   }
+   
+   function sendMessage() {
+   	var messageTextArea = document.getElementById('messageToSend');
+   	if(messageTextArea.value != ""){
+   		socket.emit('outgoing_message',"<%= namespace %>", "<%= uname %>", messageTextArea.value);
+   	
+   	}
+   	 messageTextArea.value = "";  
+   	 messageTextArea.setSelectionRange(0, 0);
+   	
+   }
+   
+   
+</script>
+

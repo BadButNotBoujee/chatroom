@@ -1,0 +1,32 @@
+	<div class="card">
+	
+  <div class="card-header ">  
+  Create a room
+  </div>
+
+	<div class="card-body ">
+	<form action="/makeRoom" method="POST">
+	
+	
+ 	 <div class="input-group" style="margin-bottom: 2px;">
+        <div class="input-group-prepend">
+          <div class="input-group-text">T</div>
+        </div>
+        <input type="text" name="room_title" class="form-control"  placeholder="room title">
+      </div>
+      
+      <% if(error != null){ %>
+  <p style="color: red; text-align: center;"> <%= error%> </p>
+<% } %>
+	     
+      
+      <hr>
+     <div style="text-align: center;">
+    <button id="addToList"  type="submit" style="display: inline-block; width:100%" class="btn btn-outline-success"><i class="material-icons">create</i> Create Room</button>
+     </div>
+     </form>
+ 	 
+	</div>
+	
+	
+  </div>

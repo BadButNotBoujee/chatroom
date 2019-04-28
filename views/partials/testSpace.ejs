@@ -1,0 +1,27 @@
+	
+	<div id="message_container" onload="">
+	
+	<div class="message">
+	<b>Shayne&#128515:</b>
+	  Hey
+	</div>
+	
+	</div>
+	
+	
+	
+
+<script>
+  var socket = io("<%= '/' + namespace %>");
+
+   
+  socket.on('connect', function(){
+  	console.log("connected");
+  });
+  
+  socket.on('incoming_message', function(chatroom, username, message){
+  	document.getElementById('message_container').innerHTML += "<div class=\"message\"><b>" + username +": </b>" + message + "</div>";
+   window.scrollTo(0, document.body.scrollHeight);    
+  });
+
+</script> 

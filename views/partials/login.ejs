@@ -1,0 +1,33 @@
+<div class="card">
+	
+  <div class="card-header ">  
+  Log in
+      </div>
+
+	<div class="card-body ">
+	<form class="form" action="/chatroom" method="post">
+	 <div class="input-group" style="margin-bottom: 2px;">
+        <div class="input-group-prepend">
+          <div class="input-group-text">T</div>
+        </div>
+        <input type="text"  name="username" class="form-control"  placeholder=" <%= room_title %> " readonly>
+		  <input type="hidden" name="key" value="<%= key %>">
+      </div>
+      
+	 <div class="input-group" style="margin-bottom: 2px;">
+        <div class="input-group-prepend">
+          <div class="input-group-text">U</div>
+        </div>
+        <input type="text" class="form-control" name="username" placeholder="username">
+      </div>
+      
+        <hr>
+   
+       <button type = "submit" style="display: inline-block; width:100%" class="btn btn-outline-success"> ENTER <i class="material-icons">keyboard_arrow_right</i></button>
+	
+	</form>
+	</div>
+	
+
+	
+  </div>

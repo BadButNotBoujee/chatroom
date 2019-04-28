@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+  <% include ../partials/header.ejs %>
+</head>
+
+<body>
+
+  <% include ../partials/nav.ejs %>
+
+
+<div class="container-fluid">
+<div class="row">
+	<div class="col-sm-4">
+
+	<div class="card">
+	
+  <div class="card-header form-inline">  
+   <input type="text" placeholder="Add a Topic" style="width: 75%;"class="form-control" id="topicTitle">
+ 	 <button id="addToList"  onclick="addTopic()" style="width:25%" class="btn btn-outline-success"><i class="material-icons">library_add</i></button>
+      </div>
+  </div>
+  
+
+	<hr>
+	
+	<div class="card">
+	
+  <div class="card-header">Camping &nbsp <span id="campingAvailability" class="badge badge-secondary">4/4 Spaces Available</span> <span style="float: right;"><span  onclick="updateScore('campingScore',1)"><i style="cursor: pointer;" class="material-icons">thumb_up</i></span> <span id="campingScore"> 0 </span> <span  onclick="updateScore('campingScore',-1)"><i  style="cursor: pointer;" class="material-icons">thumb_down</i></span> </span></div>
+  <div class="card-body" id="campingCardBody">
+   <div class="form-inline">
+ 	 <input type="text" placeholder="Display Name"class="form-control" style="width:75%" id="username">
+ 	 <button id="campingJoin"  onclick="topicClicked('camping')" style="width:25%"class="btn btn-outline-success">Join<i class="material-icons">accessibility_new</i></button>
+   </div> 
+  
+  </div>
+  
+  </div>
+ 
+ 	<div class="card card text-white bg-danger">
+	
+  <div class="card-header ">DEV TOOLS &nbsp </div>
+  <div class="card-body" id="campingCardBody">
+   <a style="color:white;"href="./chatroomTemplate"> CHATROOM </a>
+  
+  </div>
+  
+  </div>
+		
+</div>
+
+
+		
+	<div class="col-sm-4">
+	
+	
+
+	</div>
+	
+	<div class="col-sm-4">
+	
+	
+
+	</div>
+	
+</div>
+</div>
+
+</body>
+
+<script type="text/javascript">
+
+function topicClicked(topicTitle) {
+	var element = document.getElementById(topicTitle+ "CardBody");
+	element.innerHTML =""
+}
+
+function updateScore(topicScore, score) {
+	var element = document.getElementById('campingScore');
+	var currentScore = parseInt(element.innerHTML) + parseInt(score);
+	element.innerHTML = currentScore;
+}
+
+
+
+</script>
+
+</html>
